@@ -350,7 +350,8 @@ class TestAutofill(unittest.TestCase):
                                     input="defuser\npassword\n")
 
         self.assertIn("Step 1\nGetting data list", result.output)
-        self.assertIn("Getting metadata version 1\nGenerating data", result.output)
+        self.assertIn("Getting metadata version 1\n", result.output)
+        self.assertIn("Generating data", result.output)
         self.assertNotIn("Step 2", result.output)
         self.assertEqual(result.exit_code, 0)
 
