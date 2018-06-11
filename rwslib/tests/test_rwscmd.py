@@ -339,7 +339,9 @@ class TestAutofill(unittest.TestCase):
         output = result.output
         self.assertIn("Step 1\nGetting data list", output)
         self.assertIn("Getting metadata version 1", output)
-        self.assertIn("Step 10\nGetting data list\nGenerating data", output)
+        self.assertIn("Step 10\nGetting data list", output)
+        self.assertIn("Generating data", output)
+        self.assertEqual(10, output.count("Generating data"))
         self.assertNotIn("Step 11", result.output)
         self.assertEqual(result.exit_code, 0)
 
